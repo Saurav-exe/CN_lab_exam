@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VIT Tabs Demo</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+      .dark-mode {
+        background: #222 !important;
+        color: white !important;
+      }
+      .dark-box {
+        background: #333 !important;
+        border-color: #444 !important;
+      }
+      .fade-slow {
+        transition: all 0.3s ease;
+      }
+    </style>
+  </head>
+
+  <body
+    id="body"
+    style="font-family: Arial; background: #f2f2f2; padding: 20px"
+  >
+    <!-- Toggle -->
+    <button
+      id="toggleMode"
+      style="
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        padding: 4px 10px;
+        font-size: 13px;
+        border: none;
+        background: #ddd;
+        border-radius: 4px;
+      "
+    >
+      Light
+    </button>
+
+    <h3 style="text-align: center; margin-bottom: 20px" class="fade-slow">
+      SDP / EDI / DT / Course Projects
+    </h3>
+
+    <ul class="nav nav-pills mb-3 fade-slow" style="justify-content: center">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          data-toggle="pill"
+          href="#sdp"
+          style="padding: 5px 15px"
+          >SDP</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="pill"
+          href="#edi"
+          style="padding: 5px 15px"
+          >EDI</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="pill"
+          href="#dt"
+          style="padding: 5px 15px"
+          >DT</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          data-toggle="pill"
+          href="#cp"
+          style="padding: 5px 15px"
+          >Course Projects</a
+        >
+      </li>
+    </ul>
+
+    <div
+      id="box"
+      class="tab-content fade-slow"
+      style="
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        min-height: 150px;
+        border: 1px solid #ccc;
+      "
+    >
+      <div id="sdp" class="tab-pane fade show active">
+        <h5 style="color: #444">SDP</h5>
+        <p style="font-size: 14px; margin-top: 10px">
+          Simple group work. Just enough to say you made something.
+        </p>
+      </div>
+
+      <div id="edi" class="tab-pane fade">
+        <h5 style="color: #444">EDI</h5>
+        <p style="font-size: 14px; margin-top: 10px">
+          Come up with an idea, pretend it's feasible, move on.
+        </p>
+      </div>
+
+      <div id="dt" class="tab-pane fade">
+        <h5 style="color: #444">Design Thinking</h5>
+        <p style="font-size: 14px; margin-top: 10px">
+          Basic user-centered stuff. Lots of sketches.
+        </p>
+      </div>
+
+      <div id="cp" class="tab-pane fade">
+        <h5 style="color: #444">Course Projects</h5>
+        <p style="font-size: 14px; margin-top: 10px">
+          Small tasks assigned by faculty. Straightforward.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      $("#toggleMode").click(function () {
+        const body = $("#body");
+        const box = $("#box");
+
+        body.toggleClass("dark-mode");
+        box.toggleClass("dark-box");
+
+        if (body.hasClass("dark-mode")) {
+          $(this).text("Dark").css("background", "#444").css("color", "white");
+        } else {
+          $(this).text("Light").css("background", "#ddd").css("color", "black");
+        }
+      });
+    </script>
+  </body>
+</html>
